@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import './allVisualizer.css';
-import { bfs, BFSState } from '../algos/bfsAlgorithm';
+import { bfs, BFSState } from '../Algorithms/bfs';
 
 /** 
  * Example positions for a 7-node tree (0..6). 

@@ -22,7 +22,7 @@ const QuickSortVisualizer: React.FC = () => {
 			setArray(state.array);
 			setPivotIndex(state.pivotIndex);
 			setActiveIndices(state.activeIndices);
-			await sleep(500);
+			await sleep(300);
 		}
 
 		// After generator finishes, ensure everything resets to gray

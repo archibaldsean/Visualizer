@@ -16,9 +16,9 @@ const BSVisualizer: React.FC = () => {
 		const arrCopy = [...array];
 		const generator = bubbleSort(arrCopy);
 		for (const state of generator) {
-			// Add a small delay (e.g., 500ms) for visualization
 			setArray(state.array);
-			await new Promise(res => setTimeout(res, 250));
+			setCurrentIndices(state.currentIndices);
+			await new Promise(res => setTimeout(res, 300));
 		}
 		setIsSorting(false);
 	};

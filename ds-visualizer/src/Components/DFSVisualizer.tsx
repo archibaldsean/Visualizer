@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { dfs, DFSState } from '../Algorithms/dfs';
-import './allvisualizers.css';
+import './allVisualizer.css';
 
 const DFSVisualizer: React.FC = () => {
 	// Example adjacency list for a 7-node graph:

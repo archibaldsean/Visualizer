@@ -85,7 +85,7 @@ const HeapSortVisualizer: React.FC = () => {
 							const left = 2 * i + 1;
 							const right = 2 * i + 2;
 							const { x: x1, y: y1 } = nodePositions[i];
-							const edges: JSX.Element[] = [];
+							const edges: React.ReactElement[] = [];
 
 							if (left < array.length) {
 								const { x: x2, y: y2 } = nodePositions[left];

@@ -2,7 +2,7 @@
 // MergeSortVisualizer.tsx
 import React, { useState } from 'react';
 import { mergeSortGenerator, MergeSortState } from '../Algorithms/mergeSort';
-import './Visualizer.css'; // or your consolidated CSS file
+import './allVisualizer.css'; // or your consolidated CSS file
 
 const MergeSortVisualizer: React.FC = () => {
 	// You can pick any initial array or generate a random one
@@ -73,6 +73,7 @@ const MergeSortVisualizer: React.FC = () => {
 							key={index}
 							className="bar"
 							style={{
+								display: 'inline-block',
 								height: `${value * 20}px`,
 								backgroundColor: barColor,
 							}}

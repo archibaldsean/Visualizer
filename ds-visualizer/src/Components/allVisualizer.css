@@ -1,9 +1,7 @@
-
-/* allVisualizer.css */
-
 /* Container for the whole visualizer */
 .visualizer-container {
-  max-width: 800px;
+  max-width: 600px;
+  width: 100%;
   margin: 2rem auto;
   padding: 1rem;
   background-color: transparent;
@@ -16,6 +14,9 @@
 }
 
 .visualizer-description {
+  line-height: 1.4;
+  height: 4.2em;
+  text-align: left;
   color: #fff;
   margin-bottom: 1.5rem;
   font-size: 0.9rem;
@@ -25,11 +26,25 @@
 /* White card behind the graph & array */
 .chart-area {
   position: relative; /* So .heap-array can be absolutely positioned inside */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
   background-color: #fff;
   border-radius: 8px;
   padding: 1rem;
+  height: 320px;
   margin-bottom: 1.5rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.bar {
+  position: relative;
+  width: 30px;
+  margin: 0 3px;
+  background-color: #343a40;
+  transition: height 0.3s ease;
+  display: inline-block;
+  margin: 0 2px;
 }
 
 /* Center the SVG horizontally */

@@ -1,37 +1,63 @@
+
+// BSVisualizer.tsx
 import React, { useState } from 'react';
-import { bubbleSort } from '../Algorithms/bubbleSort';
+import './allVisualizer.css'; // We'll create/update this CSS
+import { bubbleSort, AlgorithmState } from '../Algorithms/bubbleSort';
 
 const BSVisualizer: React.FC = () => {
-	const [array, setArray] = useState([5, 3, 8, 4, 2, 7]);
+	const initialArray = [5, 3, 8, 4, 2, 7, 1, 6, 12, 9, 3, 10, 15, 11, 17, 18, 20];
+	const [array, setArray] = useState<number[]>(initialArray);
+	const [currentIndices, setCurrentIndices] = useState<[number, number] | null>(null);
 	const [isSorting, setIsSorting] = useState(false);
 
-	const handleSort = async () => {
+	// Run bubble sort step-by-step
+	const handleStart = async () => {
 		setIsSorting(true);
-		const generator = bubbleSort(array);
-		for (const nextArray of generator) {
-			setArray(nextArray);
-			await new Promise(res => setTimeout(res, 500)); // small delay
+		const arrCopy = [...array];
+		const generator = bubbleSort(arrCopy);
+		for (const state of generator) {
+			// Add a small delay (e.g., 500ms) for visualization
+			setArray(state.array);
+			await new Promise(res => setTimeout(res, 250));
 		}
 		setIsSorting(false);
 	};
 
+	// Reset to the initial array
+	const handleReset = () => {
+		setArray(initialArray);
+		setIsSorting(false);
+	};
+	// ...same logic for bubbleSort, handleStart, handleReset, etc.
 	return (
-		<div>
-			<h3>Bubble Sort Visualizer</h3>
-			<div>
-				{array.map((value, idx) => (
-					<div key={idx} style={{
-						display: 'inline-block',
-						width: '20px',
-						height: `${value * 10}px`,
-						backgroundColor: 'blue',
-						margin: '2px'
-					}} />
-				))}
+		<div className="visualizer-container">
+			<h2 className="algo-title">Bubble Sort</h2>
+			<p className="visualizer-description">
+				Bubble Sort is a simple sorting algorithm that repeatedly steps through the list,
+				compares adjacent elements and swaps them if they are in the wrong order.
+				The pass through the list is repeated until the list is sorted.
+			</p>
+
+			<div className="chart-area">
+				{array.map((value, index) => {
+					const isActive = currentIndices && (index === currentIndices[0] || index === currentIndices[1]);
+					return (
+						<div
+							key={index}
+							className="bar"
+							style={{
+								height: `${value * 10}px`,
+								backgroundColor: isActive ? 'red' : '#343a40',
+							}}
+						/>
+					);
+				})}
 			</div>
-			<button onClick={handleSort} disabled={isSorting}>
-				Start Sort
-			</button>
+
+			<div className="control-panel">
+				<button onClick={handleStart} disabled={isSorting}>Start</button>
+				<button onClick={handleReset} disabled={isSorting}>Reset</button>
+			</div>
 		</div>
 	);
 };

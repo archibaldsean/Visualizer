@@ -1,10 +1,10 @@
 
 import React, { useState } from 'react';
 import { quickSortGenerator, QuickSortState } from '../Algorithms/quickSort';
-import './QuickSortVisualizer.css';
+import './allVisualizer.css';
 
 const QuickSortVisualizer: React.FC = () => {
-	const initialArray = [8, 4, 7, 2, 11, 1, 3];
+	const initialArray = [8, 4, 7, 2, 11, 1, 3, 5, 8, 12, 14, 17, 15, 6, 18, 19, 20];
 
 	const [array, setArray] = useState<number[]>(initialArray);
 	const [pivotIndex, setPivotIndex] = useState<number | null>(null);
@@ -38,16 +38,16 @@ const QuickSortVisualizer: React.FC = () => {
 	};
 
 	return (
-		<div className="qs-container">
-			<h2 className="qs-title">Quick Sort</h2>
-			<p className="qs-description">
+		<div className="visualizer-container">
+			<h2 className="algo-title">Quick Sort</h2>
+			<p className="visualizer-description">
 				Bars start & end gray. Pivot is orange; active indices are red.
 			</p>
 
-			<div className="qs-chart">
+			<div className="chart-area">
 				{array.map((value, index) => {
 					// Default color: gray
-					let barColor = '#6c757d';
+					let barColor = '#343a40';
 
 					// Pivot => orange
 					if (index === pivotIndex) {
@@ -61,8 +61,9 @@ const QuickSortVisualizer: React.FC = () => {
 					return (
 						<div
 							key={index}
-							className="qs-bar"
+							className="bar"
 							style={{
+								display: 'inline-block',
 								height: `${value * 10}px`,
 								backgroundColor: barColor,
 							}}
@@ -71,7 +72,7 @@ const QuickSortVisualizer: React.FC = () => {
 				})}
 			</div>
 
-			<div className="qs-controls">
+			<div className="control-panel">
 				<button onClick={handleStart} disabled={isSorting}>Start</button>
 				<button onClick={handleReset} disabled={isSorting}>Reset</button>
 			</div>

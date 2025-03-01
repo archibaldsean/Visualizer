@@ -48,7 +48,7 @@ const HeapSortVisualizer: React.FC = () => {
 		for (const state of generator) {
 			setArray(state.array);
 			setActiveIndices(state.activeIndices);
-			await sleep(500); // adjust as you like
+			await sleep(600); // adjust as you like
 		}
 
 		setActiveIndices([]);
@@ -122,7 +122,7 @@ const HeapSortVisualizer: React.FC = () => {
 						{array.map((value, i) => {
 							const { x, y } = nodePositions[i];
 							const isActive = activeIndices.includes(i);
-							const fillColor = isActive ? '#dc3545' : '#6c757d';
+							const fillColor = isActive ? '#dc3545' : '#343a40';
 							return (
 								<g key={i}>
 									<circle cx={x} cy={y} r={15} fill={fillColor} stroke="#999" strokeWidth="2" />

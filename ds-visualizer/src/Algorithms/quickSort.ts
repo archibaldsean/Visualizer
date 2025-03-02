@@ -2,7 +2,7 @@
 export type QuickSortState = {
 	array: number[];
 	pivotIndex: number | null;
-	activeIndices: number[]; // bars currently highlighted (e.g., for comparisons/swaps)
+	activeIndices: number[];
 };
 
 
@@ -61,7 +61,6 @@ export function* quickSortGenerator(
 		yield* quickSortGenerator(array, left, pivotPos - 1);
 		yield* quickSortGenerator(array, pivotPos + 1, right);
 	} else {
-		// Optionally yield a state here for subarray of length <= 1
 		yield {
 			array: [...array],
 			pivotIndex: null,

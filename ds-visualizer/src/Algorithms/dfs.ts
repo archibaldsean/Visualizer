@@ -10,7 +10,7 @@ export function* dfs(adjList: number[][], start: number): Generator<DFSState> {
 	const stack: number[] = [start];
 
 	while (stack.length > 0) {
-		// Pop the top element (LIFO)
+		// Pop the top element 
 		const current = stack.pop()!;
 
 		if (!visitedSet.has(current)) {

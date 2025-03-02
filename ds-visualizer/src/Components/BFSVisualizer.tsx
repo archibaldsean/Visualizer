@@ -4,10 +4,6 @@ import React, { useState } from 'react';
 import './allVisualizer.css';
 import { bfs, BFSState } from '../Algorithms/bfs';
 
-/** 
- * Example positions for a 7-node tree (0..6). 
- * Adjust coordinates as desired for a nicer layout.
- */
 const nodePositions = [
 	{ x: 300, y: 100 }, // Node 0
 	{ x: 175, y: 200 }, // Node 1
@@ -18,10 +14,7 @@ const nodePositions = [
 	{ x: 475, y: 300 }, // Node 6
 ];
 
-/** 
- * Edges in [source, target] form. 
- * We'll draw arrows from source -> target.
- */
+//Edges in [source, target] form. 
 const edges = [
 	[0, 1],
 	[0, 2],
@@ -31,10 +24,7 @@ const edges = [
 	[2, 6],
 ];
 
-/** 
- * Adjacency list for the same 7-node tree. 
- * e.g. Node 0 connects to 1 & 2, Node 1 connects to 0,3,4, etc.
- */
+// Adjacency list for the same 7-node tree. 
 const adjacencyList = [
 	[1, 2],    // Node 0
 	[0, 3, 4], // Node 1
@@ -51,7 +41,7 @@ const BFSVisualizer: React.FC = () => {
 	const [current, setCurrent] = useState<number | null>(null);
 	const [isRunning, setIsRunning] = useState(false);
 
-	// Helper to pause between steps
+	// Pause between steps
 	const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 	const handleStart = async () => {
@@ -65,7 +55,7 @@ const BFSVisualizer: React.FC = () => {
 			setVisited(state.visited);
 			setQueue(state.queue);
 			setCurrent(state.current);
-			await sleep(500); // adjust speed as you like
+			await sleep(500);
 		}
 
 		setIsRunning(false);
@@ -79,10 +69,9 @@ const BFSVisualizer: React.FC = () => {
 
 	return (
 		<div className="visualizer-container">
-			{/* Title/description can be on the dark background if you prefer */}
 			<h2 className="algo-title">Breadth First Search</h2>
 			<p className="visualizer-description">
-				A 7-node tree BFS example. Starting at node 0, the algorithm visits neighbors in layers.
+				A graph traversal algorithm that searches all nodes on one level or depth before searching on the next level, this search algorithm is ideal for an unweighted graph.
 			</p>
 
 			{/* White card for the graph and controls */}

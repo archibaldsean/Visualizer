@@ -25,7 +25,6 @@ const QuickSortVisualizer: React.FC = () => {
 			await sleep(300);
 		}
 
-		// After generator finishes, ensure everything resets to gray
 		setPivotIndex(null);
 		setActiveIndices([]);
 		setIsSorting(false);
@@ -41,19 +40,16 @@ const QuickSortVisualizer: React.FC = () => {
 		<div className="visualizer-container">
 			<h2 className="algo-title">Quick Sort</h2>
 			<p className="visualizer-description">
-				Bars start & end gray. Pivot is orange; active indices are red.
+				This algorithm selects a pivot element from an array and then partitions the remaining elements into two sub-arrays based on if they are larger or smaller then the pivot, last it recursivly sorts each sub-array until finished.
 			</p>
 
 			<div className="chart-area">
 				{array.map((value, index) => {
-					// Default color: gray
 					let barColor = '#343a40';
 
-					// Pivot => orange
 					if (index === pivotIndex) {
 						barColor = 'orange';
 					}
-					// Active => red
 					else if (activeIndices.includes(index)) {
 						barColor = 'red';
 					}

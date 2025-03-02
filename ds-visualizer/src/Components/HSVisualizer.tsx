@@ -1,5 +1,4 @@
 
-// src/components/HeapSortVisualizer.tsx
 import React, { useState } from 'react';
 import { heapSortGenerator, HeapSortState } from '../Algorithms/heapSort';
 import './allVisualizer.css';
@@ -31,7 +30,6 @@ function buildHeapNodePositions(
 }
 
 const HeapSortVisualizer: React.FC = () => {
-	// Example initial array
 	const initialArray = [12, 7, 9, 3, 15, 10, 5];
 	const [array, setArray] = useState<number[]>(initialArray);
 	const [activeIndices, setActiveIndices] = useState<number[]>([]);
@@ -48,7 +46,7 @@ const HeapSortVisualizer: React.FC = () => {
 		for (const state of generator) {
 			setArray(state.array);
 			setActiveIndices(state.activeIndices);
-			await sleep(600); // adjust as you like
+			await sleep(600);
 		}
 
 		setActiveIndices([]);
@@ -60,7 +58,6 @@ const HeapSortVisualizer: React.FC = () => {
 		setActiveIndices([]);
 	};
 
-	// We'll center the heap in an SVG of width 600 and height 320
 	const svgWidth = 600;
 	const svgHeight = 320;
 	const nodePositions = buildHeapNodePositions(array.length, svgWidth, 60, 80);
@@ -69,7 +66,7 @@ const HeapSortVisualizer: React.FC = () => {
 		<div className="visualizer-container">
 			<h2 className="algo-title">Heap Sort</h2>
 			<p className="visualizer-description">
-				A 7-node heap example. The tree is centered, and the array is displayed in the bottom-left corner.
+				A sorting algorithm that sorts elements in an array using a binary heap. The algorithm repeatedly swaps the largest element/root node with the last node from the heap, then re-inserts the new root into the array sorted.
 			</p>
 
 			<div className="chart-area">

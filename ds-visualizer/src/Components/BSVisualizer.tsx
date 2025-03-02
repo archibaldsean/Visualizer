@@ -1,7 +1,7 @@
 
 // BSVisualizer.tsx
 import React, { useState } from 'react';
-import './allVisualizer.css'; // We'll create/update this CSS
+import './allVisualizer.css';
 import { bubbleSort, AlgorithmState } from '../Algorithms/bubbleSort';
 
 const BSVisualizer: React.FC = () => {
@@ -28,7 +28,6 @@ const BSVisualizer: React.FC = () => {
 		setArray(initialArray);
 		setIsSorting(false);
 	};
-	// ...same logic for bubbleSort, handleStart, handleReset, etc.
 	return (
 		<div className="visualizer-container">
 			<h2 className="algo-title">Bubble Sort</h2>

@@ -1,5 +1,4 @@
 
-// App.tsx
 import React from 'react';
 import './Components/allVisualizer.css';
 import './App.css';

@@ -1,11 +1,9 @@
 
-// MergeSortVisualizer.tsx
 import React, { useState } from 'react';
 import { mergeSortGenerator, MergeSortState } from '../Algorithms/mergeSort';
-import './allVisualizer.css'; // or your consolidated CSS file
+import './allVisualizer.css';
 
 const MergeSortVisualizer: React.FC = () => {
-	// You can pick any initial array or generate a random one
 	const initialArray = [4, 10, 15, 12, 5, 2, 11, 14, 9, 13, 18, 1, 7, 3, 20, 6, 8];
 	const [array, setArray] = useState<number[]>(initialArray);
 
@@ -54,7 +52,7 @@ const MergeSortVisualizer: React.FC = () => {
 		<div className="visualizer-container">
 			<h2 className="algo-title">Merge Sort</h2>
 			<p className="visualizer-description">
-				Visualizing Merge Sort. Bars are highlighted during comparisons and merges.
+				Merge sort uses a divide and conquere approach to sorting an array, it recursivly divides the list into two halves and sublist until each sublist has one item and then pairs of sublists are compared and merged together until the list is sorted.
 			</p>
 
 			<div className="chart-area">

@@ -27,7 +27,6 @@ function* heapify(arr: number[], n: number, i: number): Generator<HeapSortState>
 
 		yield* heapify(arr, n, largest);
 	} else {
-		// Optionally yield a "no-op" step with empty activeIndices
 		yield { array: [...arr], activeIndices: [] };
 	}
 }

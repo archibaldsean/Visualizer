@@ -1,7 +1,7 @@
 
 // BSVisualizer.tsx
 import React, { useState } from 'react';
-import './allVisualizer.css'; // We'll create/update this CSS
+import './allVisualizer.css';
 import { bubbleSort, AlgorithmState } from '../Algorithms/bubbleSort';
 
 const BSVisualizer: React.FC = () => {
@@ -16,9 +16,9 @@ const BSVisualizer: React.FC = () => {
 		const arrCopy = [...array];
 		const generator = bubbleSort(arrCopy);
 		for (const state of generator) {
-			// Add a small delay (e.g., 500ms) for visualization
 			setArray(state.array);
-			await new Promise(res => setTimeout(res, 250));
+			setCurrentIndices(state.currentIndices);
+			await new Promise(res => setTimeout(res, 300));
 		}
 		setIsSorting(false);
 	};
@@ -28,7 +28,6 @@ const BSVisualizer: React.FC = () => {
 		setArray(initialArray);
 		setIsSorting(false);
 	};
-	// ...same logic for bubbleSort, handleStart, handleReset, etc.
 	return (
 		<div className="visualizer-container">
 			<h2 className="algo-title">Bubble Sort</h2>

@@ -1,12 +1,10 @@
 
-// MergeSortVisualizer.tsx
 import React, { useState } from 'react';
 import { mergeSortGenerator, MergeSortState } from '../Algorithms/mergeSort';
-import './allVisualizer.css'; // or your consolidated CSS file
+import './allVisualizer.css';
 
 const MergeSortVisualizer: React.FC = () => {
-	// You can pick any initial array or generate a random one
-	const initialArray = [5, 2, 9, 1, 7, 3, 8];
+	const initialArray = [4, 10, 15, 12, 5, 2, 11, 14, 9, 13, 18, 1, 7, 3, 20, 6, 8];
 	const [array, setArray] = useState<number[]>(initialArray);
 
 	// Track subarray boundaries for highlighting
@@ -31,7 +29,7 @@ const MergeSortVisualizer: React.FC = () => {
 			setMid(state.mid);
 			setRight(state.right);
 			setActiveIndices(state.activeIndices);
-			await sleep(500); // adjust speed
+			await sleep(300); // adjust speed
 		}
 
 		// After sorting finishes, reset highlights
@@ -54,14 +52,14 @@ const MergeSortVisualizer: React.FC = () => {
 		<div className="visualizer-container">
 			<h2 className="algo-title">Merge Sort</h2>
 			<p className="visualizer-description">
-				Visualizing Merge Sort. Bars are highlighted during comparisons and merges.
+				Merge sort uses a divide and conquere approach to sorting an array, it recursivly divides the list into two halves and sublist until each sublist has one item and then pairs of sublists are compared and merged together until the list is sorted.
 			</p>
 
 			<div className="chart-area">
 				{/* The bars for the array */}
 				{array.map((value, index) => {
 					// Default color: gray
-					let barColor = '#6c757d';
+					let barColor = '#343a40';
 
 					// If index is in activeIndices => red
 					if (activeIndices.includes(index)) {
@@ -74,7 +72,7 @@ const MergeSortVisualizer: React.FC = () => {
 							className="bar"
 							style={{
 								display: 'inline-block',
-								height: `${value * 20}px`,
+								height: `${value * 10}px`,
 								backgroundColor: barColor,
 							}}
 						/>
